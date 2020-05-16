@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LessImportant
+    uniqueID: 4098049543
+    locked: 0
+  - name: LessImportant02
+    uniqueID: 1354311347
+    locked: 0
+  - name: Surface
+    uniqueID: 779141131
+    locked: 0
+  - name: Collectible
+    uniqueID: 1951973991
+    locked: 0
+  - name: Cover01
+    uniqueID: 1080880827
+    locked: 0
+  - name: Lock
+    uniqueID: 3499638563
+    locked: 0
