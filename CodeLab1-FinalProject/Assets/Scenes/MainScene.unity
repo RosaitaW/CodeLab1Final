@@ -1799,7 +1799,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798e779ee212bed4d82f374fda1bd952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 963194228}
   targetCube: {fileID: 676516984}
+  distance: 15
   xPosition: 15
   yPosition: 15
   zPosition: 15
@@ -5461,6 +5463,16 @@ PrefabInstance:
     - target: {fileID: 8705810408023031295, guid: b9f4e37632ff5404fa5e5a798fc9677b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705810408023031281, guid: b9f4e37632ff5404fa5e5a798fc9677b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f66a7814890a24e40b6fb0154084cf92, type: 2}
+    - target: {fileID: 8705810408023031282, guid: b9f4e37632ff5404fa5e5a798fc9677b,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
