@@ -10,6 +10,11 @@ public class ClickDoor : MonoBehaviour
     public bool isOpen = false;
     public Text What2Do;
     public GameObject ExitButton;
+    public GameObject Looktarget;
+    public GameObject Up;
+    public GameObject Down;
+    public GameObject Left;
+    public GameObject Right;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +37,16 @@ public class ClickDoor : MonoBehaviour
             Vector3 mousePos;
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToViewportPoint(mousePos);
-            if (isUnlocked)
+            if (isUnlocked && Looktarget.transform.position.y==0)
             {
                 isOpen = true;
                 gameObject.transform.Rotate(Vector3.up, 90f);
                 What2Do.text = "The door is opened";
                 ExitButton.SetActive(true);
+                Up.SetActive(false);
+                Left.SetActive(false);
+                Right.SetActive(false);
+                Down.SetActive(false);
                 Debug.Log("Is opened");
                 if (gameObject.GetComponent<BoxCollider>() != null)
                 {
@@ -45,7 +54,10 @@ public class ClickDoor : MonoBehaviour
                     Debug.Log("Can't close anymore");
                 }
             }
-            else
+            else if (isUnlocked && Looktarget.transform.position.y != 0)
+            {
+                return;
+            }else
             {
                 What2Do.text = "It's locked";
             }
