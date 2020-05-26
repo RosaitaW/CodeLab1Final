@@ -18,7 +18,7 @@ public class KeyManager : MonoBehaviour
     public GameObject lock4;
     public GameObject lock5;
     public float CountNumber;
-    public Text text;
+    //public Text text;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +28,7 @@ public class KeyManager : MonoBehaviour
     void Update()
     {
         Vector3 pos = Input.mousePosition;
-        text.text ="Need key number: "+CountNumber;
+        //text.text ="Need key number: "+CountNumber;
         if (CountNumber > 0)
         {
             if (key0 != null && lock0 != null)
