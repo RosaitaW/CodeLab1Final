@@ -23,7 +23,7 @@ public class ClickOnPillow : MonoBehaviour
             Vector3 mousePos;
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToViewportPoint(mousePos);
-            this.gameObject.transform.Translate(0f, -3f, 0f);
+            this.gameObject.transform.Translate(0f, -3f, 0f);//pillow moved
             if (gameObject.GetComponent < BoxCollider> () != null){
                 Destroy(gameObject.GetComponent<BoxCollider>());
             } 

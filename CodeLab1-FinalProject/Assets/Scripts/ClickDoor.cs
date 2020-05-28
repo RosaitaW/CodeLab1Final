@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ClickDoor : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class ClickDoor : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0)&& !EventSystem.current.IsPointerOverGameObject())
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;

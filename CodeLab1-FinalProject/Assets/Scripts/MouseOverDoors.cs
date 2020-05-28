@@ -29,6 +29,10 @@ public class MouseOverDoors : MonoBehaviour
                 Debug.Log("Ready to click");
             }
         }
+        else
+        {
+            return;
+        }
         Debug.Log("Mouse is over the door");
     }
     private void OnMouseExit()

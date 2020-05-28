@@ -72,6 +72,11 @@ public class ChangeScenes : MonoBehaviour
             MainCamera.transform.position = new Vector3(MainCamera.transform.position.x, MainCamera.transform.position.y, MainCamera.transform.position.z + MovingDistance);
             LookTarget.transform.position = new Vector3(MainCamera.transform.position.x, MainCamera.transform.position.y, MainCamera.transform.position.z + 15);
             text.text = "Moved back";
+            if (IsExitOpened)
+            {
+                ExitDoor.transform.Rotate(Vector3.up, -90f);
+                IsExitOpened = false;
+            }
             Debug.Log("moved back");
         }
     }
