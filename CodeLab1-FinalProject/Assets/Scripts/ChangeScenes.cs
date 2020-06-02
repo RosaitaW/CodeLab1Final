@@ -26,7 +26,7 @@ public class ChangeScenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EscapeButton.SetActive(false);
+        //EscapeButton.SetActive(false);
         Room2.SetActive(false);
     }
     public void NextScene()
