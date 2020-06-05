@@ -1,21 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GettingFork : MonoBehaviour
+public class PokeByHand : MonoBehaviour
 {
-    public SpriteRenderer spr;
+    public GameObject ForkPainting;
+    public Text text;
     public Sprite sprite0;
     public Sprite sprite1;
-    public bool TookFork=false;
-    public Text text;
+    public bool IsPoked;
     // Start is called before the first frame update
     void Start()
     {
-        spr = GetComponent<SpriteRenderer>();
-        spr.sprite = sprite0;
+        GetComponent<SpriteRenderer>().sprite = sprite0;
+        IsPoked = false;
     }
 
     // Update is called once per frame
@@ -23,25 +22,28 @@ public class GettingFork : MonoBehaviour
     {
         
     }
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
-        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())//Clicked and not over UI elements
+        if (Input.GetMouseButton(0))
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToViewportPoint(mousePos);
-            if (!TookFork)
+            if (!ForkPainting.GetComponent<GettingFork>().TookFork)
             {
-                TookFork = true;
-                spr.sprite = sprite1;
-                text.text = "A gold fork dropped in my hand";
+                text.text = "I'm not touching it";
+                Debug.Log("Need the fork");
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = sprite1;
+                text.text = "Something screamed";
+                IsPoked = true;
                 if (gameObject.GetComponent<BoxCollider>() != null)
                 {
                     Destroy(gameObject.GetComponent<BoxCollider>());
                 }
             }
-
         }
-
     }
 }

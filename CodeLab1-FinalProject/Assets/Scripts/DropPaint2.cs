@@ -22,13 +22,20 @@ public class DropPaint2 : MonoBehaviour
     {
         //col.enabled = true; //trun on collisions
         //rb.useGravity = true;
-        gameObject.transform.Translate(0f, Floor.transform.position.y - gameObject.transform.position.y + gameObject.GetComponent<BoxCollider>().size.y / 2f, 0f);
-        gameObject.transform.Rotate(0f,0f,2f);
-        text.text = "The painting dropped";
-        if (gameObject.GetComponent<BoxCollider>() != null)
+        if (Camera.main.transform.position.z > -25.48f)
         {
-            Destroy(gameObject.GetComponent<BoxCollider>());
-            Debug.Log("Droped");
+            text.text = "I can't reach it";
         }
+        else
+        {
+            gameObject.transform.Translate(0f, Floor.transform.position.y - gameObject.transform.position.y + gameObject.GetComponent<BoxCollider>().size.y / 2f, 0f);
+            gameObject.transform.Rotate(0f, 0f, 2f);
+            text.text = "The painting dropped";
+            if (gameObject.GetComponent<BoxCollider>() != null)
+            {
+                Destroy(gameObject.GetComponent<BoxCollider>());
+                Debug.Log("Droped");
+            }
+        }  
     }
 }

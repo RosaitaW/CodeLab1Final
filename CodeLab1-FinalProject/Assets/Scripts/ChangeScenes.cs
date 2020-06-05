@@ -33,6 +33,10 @@ public class ChangeScenes : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void TrueEnding()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+    }
     public void ToTheMenu()
     {
         SceneManager.LoadScene(0);
@@ -54,6 +58,7 @@ public class ChangeScenes : MonoBehaviour
         Right.SetActive(true);
         Down.SetActive(true);
         text.text = "Escape the hallway";
+        text.GetComponent<Text>().color = Color.red;//or use "new Color(0-255,0-255,0-255,)to change color with RGB values"
         Debug.Log("Moved to a new place");
     }
     public void MoveBackward()

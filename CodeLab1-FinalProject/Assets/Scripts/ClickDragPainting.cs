@@ -6,7 +6,7 @@ public class ClickDragPainting : MonoBehaviour
 {
     float mouseZPos; //holds the mouse position of the object
     Rigidbody rb; //holds the Rigidbody
-    Collider col; //holds the Collider
+    //Collider col; //holds the Collider
     public SpriteRenderer PaintingSprite;
     public GameObject Floor;
     public Sprite sprite0;
@@ -28,7 +28,7 @@ public class ClickDragPainting : MonoBehaviour
             rb.MovePosition(GetMouseAsWorldPoint());//move it to the new mouse position
         }
          
-        col.enabled = false; //turn off the collider
+        //col.enabled = false; //turn off the collider
     }
 
     private void OnMouseUp() //if you release the mouse over the object
