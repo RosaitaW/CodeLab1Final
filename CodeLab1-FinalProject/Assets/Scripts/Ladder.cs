@@ -33,6 +33,7 @@ public class Ladder : MonoBehaviour
                 Camera.main.transform.Translate(0f, 0.5f,4.28f);
                 LookTarget.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + 15f, Camera.main.transform.position.z - 15f);
                 TEbutton.SetActive(true);
+                Destroy(text);
                 Up.SetActive(false);
                 if (Down != null)
                 {

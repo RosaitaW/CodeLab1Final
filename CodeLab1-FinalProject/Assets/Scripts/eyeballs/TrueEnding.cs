@@ -43,6 +43,10 @@ public class TrueEnding : MonoBehaviour
                     ExitLadder.SetActive(true);
                     text.text = "A ladder dropped down";
                     Debug.Log("Ladder down");
+                    if (GetComponent<BoxCollider>()!=null)
+                    {
+                        Destroy(GetComponent<BoxCollider>());
+                    }
                 }
                 else
                 {
