@@ -12,6 +12,7 @@ public class ChangeScenes : MonoBehaviour
     public Text text;
     public GameObject ExitDoor;
     public GameObject EscapeButton;
+    public GameObject TEbutton;
     //public GameObject EscapeButton2;
     public GameObject LookTarget;
     public GameObject Room1;
@@ -27,7 +28,14 @@ public class ChangeScenes : MonoBehaviour
     void Start()
     {
         //EscapeButton.SetActive(false);
-        Room2.SetActive(false);
+        Scene currentScene = SceneManager.GetActiveScene();//check current scene
+        string sceneName = currentScene.name;//get current scene name
+        if (sceneName == "MainScene")
+        {
+            Room2.SetActive(false);
+            TEbutton.SetActive(false);
+        }
+        
     }
     public void NextScene()
     {
