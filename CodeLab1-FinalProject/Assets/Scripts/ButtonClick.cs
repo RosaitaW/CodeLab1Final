@@ -34,8 +34,8 @@ public class ButtonClick : MonoBehaviour
         else
         {
             Up.SetActive(false);
-            Left.SetActive(false);
-            Right.SetActive(false);
+            Left.SetActive(true);
+            Right.SetActive(true);
             Down.SetActive(true);
         }
     }
@@ -53,8 +53,8 @@ public class ButtonClick : MonoBehaviour
         else
         {
             Up.SetActive(true);
-            Left.SetActive(false);
-            Right.SetActive(false);
+            Left.SetActive(true);
+            Right.SetActive(true);
             Down.SetActive(false);
         }   
     }
@@ -63,61 +63,91 @@ public class ButtonClick : MonoBehaviour
         if (targetCube.transform.position.x == mainCamera.transform.position.x- distance && targetCube.transform.position.z== mainCamera.transform.position.z)//left side
         {
             //targetCube.transform.Translate(distance, 0f, -distance);
-            targetCube.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z - distance);
+            targetCube.transform.position = new Vector3(mainCamera.transform.position.x, targetCube.transform.position.y, mainCamera.transform.position.z - distance);
             Debug.Log("Turn left1");
         }
         else if(targetCube.transform.position.x == mainCamera.transform.position.x && targetCube.transform.position.z == mainCamera.transform.position.z+ distance)//front side
         {
             //targetCube.transform.Translate(-distance, 0f, -distance);
-            targetCube.transform.position = new Vector3(mainCamera.transform.position.x - distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            targetCube.transform.position = new Vector3(mainCamera.transform.position.x - distance, targetCube.transform.position.y, mainCamera.transform.position.z);
             Debug.Log("Turn left2");
         }
         else if (targetCube.transform.position.x == mainCamera.transform.position.x && targetCube.transform.position.z <= mainCamera.transform.position.z - distance)//back side
         {
             //targetCube.transform.Translate(distance, 0f, distance);
-            targetCube.transform.position = new Vector3(mainCamera.transform.position.x + distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            targetCube.transform.position = new Vector3(mainCamera.transform.position.x + distance, targetCube.transform.position.y, mainCamera.transform.position.z);
             Debug.Log("Turn left3");
         }
         else if(targetCube.transform.position.x == mainCamera.transform.position.x + distance && targetCube.transform.position.z == mainCamera.transform.position.z)//right side
         {
             //targetCube.transform.Translate(-distance, 0f, distance);
-            targetCube.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z + distance);
+            targetCube.transform.position = new Vector3(mainCamera.transform.position.x, targetCube.transform.position.y, mainCamera.transform.position.z + distance);
             Debug.Log("Turn left4");
         }
-        Up.SetActive(true);
+        if (targetCube.transform.position.y <= mainCamera.transform.position.y)
+        {
+            Up.SetActive(true);
+        }
+        else
+        {
+            Up.SetActive(false);
+        }
+        
         Left.SetActive(true);
         Right.SetActive(true);
-        Down.SetActive(true);
+        if (targetCube.transform.position.y >= mainCamera.transform.position.y)
+        {
+            Down.SetActive(true);
+        }
+        else
+        {
+            Down.SetActive(false);
+        }
+        
     }
     public void LookRight()
     {
         if (targetCube.transform.position.x == mainCamera.transform.position.x - distance && targetCube.transform.position.z == mainCamera.transform.position.z)//left side
         {
             //targetCube.transform.Translate(distance, 0f, distance);
-            targetCube.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z + distance);
+            targetCube.transform.position = new Vector3(mainCamera.transform.position.x, targetCube.transform.position.y, mainCamera.transform.position.z + distance);
             Debug.Log("Turn right1");
         }
         else if (targetCube.transform.position.x == mainCamera.transform.position.x && targetCube.transform.position.z == mainCamera.transform.position.z+ distance)//front side
         {
             //targetCube.transform.Translate(distance, 0f, -distance);
-            targetCube.transform.position = new Vector3(mainCamera.transform.position.x + distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            targetCube.transform.position = new Vector3(mainCamera.transform.position.x + distance, targetCube.transform.position.y, mainCamera.transform.position.z);
             Debug.Log("Turn right2");
         }
         else if (targetCube.transform.position.x == mainCamera.transform.position.x && targetCube.transform.position.z <= mainCamera.transform.position.z - distance)//back side
         {
             //targetCube.transform.Translate(-distance, 0f, distance);
-            targetCube.transform.position = new Vector3(mainCamera.transform.position.x - distance, mainCamera.transform.position.y, mainCamera.transform.position.z);
+            targetCube.transform.position = new Vector3(mainCamera.transform.position.x - distance, targetCube.transform.position.y, mainCamera.transform.position.z);
             Debug.Log("Turn right3");
         }
         else if(targetCube.transform.position.x == mainCamera.transform.position.x + distance && targetCube.transform.position.z == mainCamera.transform.position.z)//right side
         {
             //targetCube.transform.Translate(-distance, 0f, -distance);
-            targetCube.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z - distance);
+            targetCube.transform.position = new Vector3(mainCamera.transform.position.x, targetCube.transform.position.y, mainCamera.transform.position.z - distance);
             Debug.Log("Turn right4");
         }
-        Up.SetActive(true);
+        if (targetCube.transform.position.y <= mainCamera.transform.position.y)
+        {
+            Up.SetActive(true);
+        }
+        else
+        {
+            Up.SetActive(false);
+        }
         Left.SetActive(true);
         Right.SetActive(true);
-        Down.SetActive(true);
+        if (targetCube.transform.position.y >= mainCamera.transform.position.y)
+        {
+            Down.SetActive(true);
+        }
+        else
+        {
+            Down.SetActive(false);
+        }
     }
 }

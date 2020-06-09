@@ -80,7 +80,7 @@ public class ChangeScenes : MonoBehaviour
             text.text = "I'm not going back";
             Debug.Log("No turning back");
         }
-        else
+        else if(LookTarget.transform.position.y==MainCamera.transform.position.y)
         {
             MainCamera.transform.position = new Vector3(MainCamera.transform.position.x, MainCamera.transform.position.y, MainCamera.transform.position.z + MovingDistance);
             LookTarget.transform.position = new Vector3(MainCamera.transform.position.x, MainCamera.transform.position.y, MainCamera.transform.position.z + 15);
@@ -102,10 +102,13 @@ public class ChangeScenes : MonoBehaviour
         }
         if (MainCamera.transform.position.z > -35.76f)
         {
-            MainCamera.transform.position = new Vector3(MainCamera.transform.position.x, MainCamera.transform.position.y, MainCamera.transform.position.z - MovingDistance);
-            LookTarget.transform.position = new Vector3(MainCamera.transform.position.x, MainCamera.transform.position.y, MainCamera.transform.position.z - 15);
-            text.text = "Moved forward";
-            Debug.Log("moved forward");
+            if(LookTarget.transform.position.y == MainCamera.transform.position.y){
+                MainCamera.transform.position = new Vector3(MainCamera.transform.position.x, MainCamera.transform.position.y, MainCamera.transform.position.z - MovingDistance);
+                LookTarget.transform.position = new Vector3(MainCamera.transform.position.x, MainCamera.transform.position.y, MainCamera.transform.position.z - 15);
+                text.text = "Moved forward";
+                Debug.Log("moved forward");
+            }
+            
         }
         else
         {

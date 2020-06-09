@@ -144,7 +144,7 @@ public class BloodManager : MonoBehaviour
                 Injuries++;
             }
         }
-        if (Injuries >= 7f)
+        if (Injuries >= 4f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
         }
